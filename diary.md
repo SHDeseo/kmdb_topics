@@ -128,6 +128,7 @@ json 출력값에는 이 두 파라미터가 생략되어있다.<br>
 <h1 id="section-7"></h1>
 <h4 id="section-8">11.21</h4>
 <p>for문으로 23회에 걸쳐 데이터를 가져오는건 문제가 아니었다. 불러온 출력값에 에러를 일으키는 결과가 있어서 에러를 알리는 경고문만 출력되었다. listCount의 최소값이 3인 덕분에 3개씩 불러와서 에러를 일으키는 결과 row가 무엇인지 찾아내고 그걸 피해서 결과를 가져오는 작업을 했다. 삽질 같지만 별로 어렵지 않다. 데이터 전처리가 좀 잘 맞는 것 같기도 하다.</p>
+<p><strong>데이터 수</strong></p>
 
 <table>
 <thead>
@@ -152,6 +153,103 @@ json 출력값에는 이 두 파라미터가 생략되어있다.<br>
 <td>281</td>
 </tr>
 </tbody>
+</table><p><strong>변수</strong></p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>변수명</th>
+<th>설명</th>
+<th>데이터형</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>movieId</td>
+<td>등록Id</td>
+<td>문자열(ex. A, K)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>movieSeq</td>
+<td>등록Seq(Id와 결합되는 고유값)</td>
+<td>숫자 5자리</td>
+</tr>
+<tr>
+<td>3</td>
+<td>title</td>
+<td>제목</td>
+<td>문자열</td>
+</tr>
+<tr>
+<td>4</td>
+<td>year</td>
+<td>제작년도</td>
+<td>4자리 정수</td>
+</tr>
+<tr>
+<td>5</td>
+<td>director</td>
+<td>감독이름</td>
+<td>문자열</td>
+</tr>
+<tr>
+<td>6</td>
+<td>directorId</td>
+<td>감독Id</td>
+<td>숫자 9자리(ex. 00012228)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>writer</td>
+<td>각본가 이름</td>
+<td>문자열</td>
+</tr>
+<tr>
+<td>8</td>
+<td>writerId</td>
+<td>각본가 Id</td>
+<td>숫자 9자리(ex. 00023378)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>actors</td>
+<td>배우 이름</td>
+<td>문자열</td>
+</tr>
+<tr>
+<td>10</td>
+<td>actorId</td>
+<td>배우 Id</td>
+<td>숫자 9자리(ex. 00023378)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>pd</td>
+<td>제작사</td>
+<td>문자열</td>
+</tr>
+<tr>
+<td>12</td>
+<td>genre</td>
+<td>장르</td>
+<td>문자열</td>
+</tr>
+<tr>
+<td>13</td>
+<td>keywords</td>
+<td>키워드</td>
+<td>문자열</td>
+</tr>
+<tr>
+<td>14</td>
+<td>plot</td>
+<td>시놉시스</td>
+<td>문자열</td>
+</tr>
+</tbody>
 </table><p>총 <strong>6504</strong> 편의 영화정보를 수집했고 shape은 6504x14이다.<br>
 csv에 저장했다.</p>
 <h1 id="section-9"></h1>
@@ -163,6 +261,7 @@ LDA로 토픽을 뽑아내야 하는데 그리드 서치를 하는 방법을 찾
 출처:  <a href="https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/06/01/LDA/">rat’s go - Topic Modeling, LDA</a></p>
 <p>beta는 각 단어가 해당 토픽에서 나타날 확률에서 alph와 비슷한 역할을 한다고 한다.</p>
 <p>그러니까 두 파라메터의 값에 따라 특정 토픽으로 할당될 확률이 도미넌트 해진다는 것인데 그냥 defaut인 <code>1/토픽수</code> 대로 써야할지 아니면 다른 식으로 조정하면 좋을지 잘 모르겠다.</p>
+<p>참고할 강의: <strong>Topic Models</strong> <a href="http://videolectures.net/mlss09uk_blei_tm/">http://videolectures.net/mlss09uk_blei_tm/</a></p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
